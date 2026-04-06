@@ -1,0 +1,29 @@
+class Solution {
+    /**
+     * @param {number[]} height
+     * @return {number}
+     */
+    trap(height) {
+        let water = 0;
+        let leftMax=0,rightMax=0,left=0,right=height.length-1;
+
+        while(left<right){
+            if(height[left]<height[right]){
+                if(leftMax<=height[left]){
+                    leftMax = height[left];
+                }else{
+                    water += leftMax - height[left];
+                }
+                left++;
+            }else{
+                if(rightMax<=height[right]){
+                    rightMax = height[right];
+                }else{
+                    water += rightMax - height[right];
+                }
+                right--;
+            }
+        }
+        return water;
+    }
+}

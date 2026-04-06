@@ -1,0 +1,18 @@
+class Solution {
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number[]}
+     */
+    twoSum(nums, target) {
+        const size = nums.length;
+       for(let i=0;i<size;i++) {
+        for(let j=i+1;j<size;j++){
+            if(nums[i]+nums[j]==target)
+                    return [i,j];
+        }
+       }
+    }
+}
+
+
