@@ -1,0 +1,26 @@
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        n = len(s)
+
+        left = 0
+        right = 0
+        freq = defaultdict(int)
+        longest = 0
+        max_freq = 0
+        
+        while right < n:
+            freq[s[right]] += 1
+
+            window_length = right - left + 1
+            max_freq = max(max_freq, freq[s[right]])
+
+            if window_length - max_freq > k:
+                freq[s[left]] -= 1
+                left += 1
+            longest = max(longest, right - left  + 1)
+            right += 1
+        return longest
+
+
+
+
